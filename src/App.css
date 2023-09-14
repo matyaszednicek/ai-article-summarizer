@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.25;
+  background: radial-gradient(at 40% 20%, rgb(145, 26, 236) 0px, transparent 50%),
+    radial-gradient(at 50% 60%, rgb(77, 12, 255) 0px, transparent 50%),
+    radial-gradient(at 70% 20%, rgb(255, 113, 19) 0px, transparent 50%),
+    radial-gradient(at 10% 80%, rgb(0, 202, 47) 0px, transparent 50%),
+    radial-gradient(at 70% 60%, rgb(225, 26, 26) 0px, transparent 50%);
+  animation: bgMove 4s linear infinite alternate;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 200px 200px, 500px 600px, 900px 200px, 100px 80px, 800px 800px;
+  }
+
+  100% {
+    background-position: 80px 600px, 300px 100px, 500px 300px, 600px 400px, 400px 90px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
